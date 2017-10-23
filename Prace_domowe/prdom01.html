@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PD</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Szczegóły konta</legend>
+        <label>Imię:
+            <input type="text" name="name" /><br/>
+        </label><br/>
+        <label>Email:
+            <input type="text" name="email" /></label>
+    </fieldset><br>
+    <fieldset>
+        <legend>Kilka informacji o tobie</legend>
+        <p>Czy odwiedzisz nas ponownie?
+            <br />
+            <input type="radio" name="choice" value="yes"
+                /> Tak
+            <input type="radio" name="choice" value="no" />
+                Nie
+            <input type="radio" name="choice" value="maybe" />
+                Może
+        </p>
+        Komentarz:<br/>
+        <textarea rows="4" cols="50"></textarea> <br><br>
+        <input type="checkbox" name="agreement"
+        value="yes" checked="checked" /> Chcę być informowany o aktualizacjach. <br>
+        <input type="submit" name="send" value="Prześlij informacje" />  
+    </fieldset> 
+</body>
+</html>
