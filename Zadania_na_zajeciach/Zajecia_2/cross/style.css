@@ -11,16 +11,16 @@
   }
   50%{
     background-color: solid blue;
-    left:200px;
+    left:0px;
     top:200px;
   }
   75%{
     background-color: solid blue;
-    left:0px;
+    left:200px;
     top:200px;
   }
   100%{
-    background-color: solid red;
+    background-color: solid green;
     left:0px;
     top:0px;
   }
