@@ -1,0 +1,46 @@
+div{
+  height: 400px;
+  width: 200px;
+  color: white;
+}
+
+
+#first{
+  background-color: blue;
+  position: absolute;
+		left: 100px;
+		top: 100px;
+		z-index: 1;
+}
+
+#second{
+  background-color: yellow;
+  position: absolute;
+		left: 150px;
+		top: 150px;
+		z-index: 2;
+}
+
+#third{
+  background-color: red;
+  position: fixed;
+		left: 200px;
+		top: 200px;
+		z-index: 3;
+}
+
+#forth{
+  background-color: black;
+  position: absolute;
+		left: 250px;
+		top: 250px;
+		z-index: 4;
+}
+
+#fifth{
+  background-color: green;
+  position: absolute;
+		left: 300px;
+		top: 300px;
+		z-index: 5;
+}
