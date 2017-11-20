@@ -1,0 +1,74 @@
+.box{
+  display: flex;
+  border-color: black;
+  border-width: 3px;
+  border-style: solid;
+  padding: 10px;
+  flex-wrap: wrap;
+  height: 150px;
+  align-items: stretch;
+}
+
+.A{
+  order: 3;
+  background-color: red;
+  flex-basis: 30%;
+}
+
+.B{
+  order: 5;
+  background-color: blue;
+  flex-basis: 30%;
+}
+
+.C{
+  order: 2;
+  background-color: green;
+  flex-basis: 30%;
+}
+.D{
+  order: 11;
+  background-color: yellow;
+  flex-basis: 30%;
+}
+.E{
+  order: 4;
+  background-color: orange;
+  flex-basis: 30%;
+}
+
+.F{
+  order: 7;
+  background-color: purple;
+  flex-basis: 30%;
+}
+
+.G{
+  order: 9;
+  background-color: #64efba;
+  flex-basis: 30%;
+}
+
+.H{
+  order: 6;
+  background-color: pink;
+  flex-basis: 30%;
+}
+
+.I{
+  order: 8;
+  background-color: brown;
+  flex-basis: 30%;
+}
+
+.J{
+  order: 1;
+  background-color: silver;
+  flex-basis: 30%;
+}
+
+.K{
+  order: 10;
+  background-color: #ffb5d0;
+  flex-basis: 30%;
+}
