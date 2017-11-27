@@ -4,6 +4,10 @@ body{
   width: auto;
 }
 
+fieldset {
+    border: 0;
+}
+
 .main{
   color: #264158;
   font-family: Arial;
@@ -21,14 +25,25 @@ p{
     text-align: center;
 }
 
-fieldset {
-    border: 0;
+.words{
+  justify-content: center;
+  align-content: flex-start;
 }
+
+.field{
+  display: flex;
+}
+
+.inputt{
+  justify-content: center;
+  align-self: center;
+}
+
 
 #title{
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-content: flex-start;
 }
 
 .container{
@@ -38,21 +53,6 @@ fieldset {
   padding: 10px;
   text-align: left;
 }
-
-.container_2{
-  display: flex;
-  flex-direction: column;
-}
-
-.words{
-  justify-content: center;
-  align-self: center;
-}
-
-.input{
-  align-self: center;
-}
-
 
 .left{
   background-color: #FAFAFB;
@@ -70,6 +70,6 @@ fieldset {
   border-radius: 4px;
 }
 
-footer{#75777c
+footer{
   padding: 5px;
 }
