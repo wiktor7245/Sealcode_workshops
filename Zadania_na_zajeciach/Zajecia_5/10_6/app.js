@@ -14,8 +14,3 @@ var el = document.getElementById('paragraph-three');
 el.innerHTML = 'Dzisiaj jest: ' + day + '.' + '<br />' +
 'Aktualny miesiąc: ' + month + '.' + '<br />' + 'Mój wiek w latach to: ' + age + '.' + '<br />'
  + 'Data wyświetlona w momencie wywołania metody: ' + date + '.';
-
-console.log(dateOfBirth.getFullYear());
-console.log(d.getFullYear());
-console.log(difference);
-console.log(age);
