@@ -2,6 +2,8 @@ body{
   background-color: #FAFAFB;
   height: auto;
   width: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .main{
@@ -19,6 +21,10 @@ h1{
 
 p{
     text-align: center;
+}
+
+h2{
+  text-align: center;
 }
 
 fieldset {
@@ -70,6 +76,13 @@ fieldset {
   border-radius: 4px;
 }
 
-footer{#75777c
+footer{
+  text-align: center;
   padding: 5px;
+}
+
+#checkboxes ul {
+  margin: 0;
+  list-style: none;
+  float: left;
 }
