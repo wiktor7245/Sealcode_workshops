@@ -8,7 +8,7 @@ var month = months[d.getMonth()]; // na stornie jest błąd - zamiast getMonths(
 var dateOfBirth = new Date(1996, 3, 22, 6, 30, 30); // ustawiamy datę z przeszłości w formacie: YYYY, MM, DD, HH, MM, SS
 var difference = d.getTime() - dateOfBirth.getTime(); // wynik jest w milisekundach
 var age = Math.floor(difference / 31556900000); // dzielone całkowicie przez liczbę milisekund w roku (przy założeniu, że to nie jest rok przestępny)
-var date = d.toString();
+var date = d.toTimeString();
 
 var el = document.getElementById('paragraph-three');
 el.innerHTML = 'Dzisiaj jest: ' + day + '.' + '<br />' +
