@@ -20,4 +20,24 @@ else {
 
 var x = document.getElementsByTagName('p')
 
-/*Dla strony o kodzie źródłowym HTML z przykładu 11.2. napisz skrypt języka JavaScript, który akapitowi nada klasę akapit i zmieni identyfikator na zmieniony.*/
+// Moja czesc
+var zm = document.getElementById('paragraph');
+
+if (zm.hasAttribute('id')) { // sprawdzamy, czy element ma atrybut 'id'
+var attri = zm.getAttribute('id'); // pobieramy wartość atrybutu 'id'
+console.log(attri);
+zm.id = "zmieniony"; // zmieniamy wartość atrybutu 'id';
+console.log(zm);
+}
+
+if (zm.hasAttribute('class')) { // sprawdzamy, czy element ma atrybut 'class'
+var attri = zm.getAttribute('class'); // pobieramy wartość atrybutu 'class'
+console.log(attri);
+}
+else {
+zm.setAttribute('class', 'akapit'); // dodajemy do elementu atrybut 'class' o wartości 'nowa-klasa'
+var attr3 = zm.className; // przypisujemy do zmiennej nazwę klasy
+console.log(attr3);
+zm.removeAttribute('id'); // usuwamy atrybut 'id'
+console.log(zm.getAttribute('id'));
+}

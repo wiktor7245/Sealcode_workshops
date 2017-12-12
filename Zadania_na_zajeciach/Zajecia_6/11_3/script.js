@@ -1,4 +1,4 @@
-//zrobic bo zle
-var el = document.getElementById('li-2').innerHTML;
+var el = document.getElementById('li-2');
 
-console.log(el);
+console.log(el.previousSibling.previousElementSibling.innerHTML);
+console.log(el.nextSibling.nextElementSibling.innerHTML);
