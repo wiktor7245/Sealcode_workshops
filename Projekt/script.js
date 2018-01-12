@@ -40,6 +40,7 @@ function newElement() {
   } else {
     document.getElementById("listing").appendChild(li);
   }
+    tasks.push(inputValue);
   document.getElementById("in").value = "";
 
   var span = document.createElement("SPAN");
@@ -54,4 +55,8 @@ function newElement() {
       div.style.display = "none";
     }
   }
+    
+    //this cant be right without rest api
+    /*window.location.reload(true);
+    console.log(Math.random());*/
 }
