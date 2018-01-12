@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <title>Notes app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
-  </head>
-  <body>
-      <div class="main">
-        <header id="title"><h1>Note taker</h1></header>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed">
+</head>
+
+<body>
+    <main>
+
+        <header>
+            <h2> Note taker</h2>
+        </header>
         <div class="container">
-          <section class="left">
-            <h2>Your notes:</h2>
-            <fieldset>
-              <div id="checkboxes">
-                <ul>
-                  <li><button type="button" onclick="alert('Usunięto!')">Usuń</button><input type="checkbox">Kupić mleko</li>
-                  <li><button type="button" onclick="alert('Usunięto!')">Usuń</button><input type="checkbox">Posprzątać pokój</li>
-                  <li><button type="button" onclick="alert('Usunięto!')">Usuń</button><input type="checkbox">Zrobić projekt</li>
-                  <li><button type="button" onclick="alert('Usunięto!')">Usuń</button><input type="checkbox">Nauczyć się na SOPY</li>
+
+            <section class="adder" id="adder">
+                <h3 id="today">Add task:</h3>
+                <input type="text" id="in" placeholder="Treść notatki...">
+                <span onclick="newElement()" class="addBtn">Add</span>
+            </section>
+
+            <section class="listing" id="list">
+                <ul id="listing">
+                    <li>Kupić mleko</li>
+                    <li>Posprzątać</li>
+                    <li>Pouczyć się</li>
+                    <li>Zrobić projekt</li>
+                    <li>Walnąć formata</li>
+                    <li>Poszukać inf nt. rest api</li>
                 </ul>
-              </div>
-          </fieldset>
-          </section>
-          <aside class="right">
-            <div class="container_2">
-              <div class="words">
-                <h2 id="today">Add task:</h2>
-              </div>
-              <div class="input">
-              <fieldset>
-                  <!--  <legend>Szczegóły konta</legend> -->
-                    <label>Zadanie:
-                      <input type="text" name="task" />
-                    </label>
-                      <input type="submit" name="send" value="Dodaj notatkę!" />
-                  </fieldset>
-              </div>
-            </div>
-          </aside>
+            </section>
+
         </div>
-        <footer>App made by Wiktor Tylman on Sealcode Workshops.</footer>
-      </div>
-    <script src="script.js"></script>
-  </body>
+
+        <footer>
+            App made by Wiktor Tylman on Sealcode Workshops.
+        </footer>
+    </main>
+</body>
+<script src="script.js" ></script>
+<script src="date.js" ></script>
 </html>

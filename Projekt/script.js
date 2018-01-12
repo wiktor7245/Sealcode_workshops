@@ -1,6 +1,57 @@
-var months = ['stycznia', 'lutego', 'marca','kwietnia','maja','czerwca','lipca','sierpnia','września','października',
-'listopada','grudnia'];
-var d = new Date();
-var month = months[d.getMonth()];
-var datownik = document.getElementById('today');
-datownik.innerHTML = "Dzisiaj mamy: " + d.getDate() + " " + month + " " + d.getFullYear() + "r." + '<br />' + " Add note:";
+//close button
+var buttons = document.getElementsByTagName("li");
+var i;
+for(i=0; i < buttons.length; i++){
+    var span = document.createElement("span");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    buttons[i].appendChild(span);
+}
+
+
+//deleting items
+var close = document.getElementsByClassName("close");
+var i;
+for(i=0;i< close.length; i++){
+    close[i].onclick = function(){
+        var div = this.parentElement;
+        div.style.display = "none";
+    }
+}
+
+//check symbol
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+
+// adding items
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("in").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("listing").appendChild(li);
+  }
+  document.getElementById("in").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}

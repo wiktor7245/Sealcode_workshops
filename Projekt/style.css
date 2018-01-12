@@ -1,88 +1,138 @@
-body{
-  background-color: #FAFAFB;
-  height: auto;
-  width: auto;
-  display: flex;
-  justify-content: center;
+html,body{
+    height: 100%; /*inaczej są problemy*/
 }
 
-.main{
+body{
+  background-color: #FAFAFB;
+  background: linear-gradient(to bottom, #66C6E0 , #0F1147);
+  width: auto;
+  display: flex;
+  justify-content: center; /*poziom*/
+  align-items: center;/*pion*/
+}
+
+main{
   color: #264158;
   font-family: Arial;
-  width: 75%;
+  width: 90%;
   background-color: #9C9FA4;
 }
 
-h1{
+h1,h2,h3{
   text-align: center;
   font-family: 'Barlow Semi Condensed', sans-serif;
-  font-size: 50px;
 }
 
-p{
+footer{
     text-align: center;
-}
-
-h2{
-  text-align: center;
-}
-
-fieldset {
-    border: 0;
-}
-
-#title{
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
 }
 
 .container{
   display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  padding: 10px;
-  text-align: left;
+  flex-wrap: wrap;
+}
+.container>section {
+  flex: 1 0;
+  box-sizing: border-box;
+  margin: 10px;
+  background: rgba(250, 250, 251,0.9);
+  color: #171e42;
+  padding-right: 10px;
+  box-shadow: 0 0 62px rgba(0, 0, 0,0.1);
+  min-width: 45%;
+  word-break:break-all ;
+  
 }
 
-.container_2{
-  display: flex;
-  flex-direction: column;
+*{
+    box-sizing: border-box;
 }
 
-.words{
-  justify-content: center;
-  align-self: center;
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.input{
-  align-self: center;
+ul li{
+    /*items unselectable*/
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
 }
 
-
-.left{
-  background-color: #FAFAFB;
-  display: block;
-  width: 50%;
-  margin-right: 5px;
-  border-radius: 4px;
+ul li:hover{
+    background: #ddd;
 }
 
-.right{
-  background-color: #FAFAFB;
-  display: block;
-  width: 50%;
-  margin-left: 5px;
-  border-radius: 4px;
+ul li.checked{
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
 }
 
-footer{
-  text-align: center;
-  padding: 5px;
+ul li.checked::before{
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
 }
 
-#checkboxes ul {
-  margin: 0;
-  list-style: none;
-  float: left;
+.close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+
+.close:hover{
+    background-color: #f44336;
+    color: white;
+    text-align: center;
+}
+
+.container{
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+}
+
+.container:after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+input{
+    border: none;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+}
+
+.addBtn{
+    padding: 10px;
+    width: 25%;
+    background: #d9d9d9;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.addBtn:hover{
+    background-color: #bbb;
 }
