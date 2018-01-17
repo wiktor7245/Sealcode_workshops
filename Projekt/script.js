@@ -56,6 +56,7 @@ function newElement() {
       div.style.display = "none";
     }
   }
+  qwest.post(url, {title: inputValue, is_done: false}, {cache: true}); // wysłanie nowego zadania w postaci obiektu o właściwościach "title" i "is_done"
     
     //this cant be right without rest api
     /*window.location.reload(true);
