@@ -1,3 +1,5 @@
+
+
 //close button
 var buttons = document.getElementsByTagName("li");
 var i;
@@ -29,6 +31,13 @@ list.addEventListener('click', function(ev) {
   }
 }, false);
 
+function validateOnEnter(event) {
+  var key = event.which || event.keyCode;
+  if (key == 13) { // enter pressed then invoke the validation method
+    newElement();
+  }
+}
+
 
 // adding items
 function newElement() {
@@ -40,6 +49,8 @@ function newElement() {
     alert("You must write something!");
   } else {
     document.getElementById("listing").appendChild(li);
+    qwest.post(url, {title: inputValue, is_done: false}, {cache: true}); // wysłanie nowego zadania w postaci obiektu o właściwościach "title" i "is_done"
+    
   }
     tasks.push(inputValue);
   document.getElementById("in").value = "";
@@ -56,8 +67,34 @@ function newElement() {
       div.style.display = "none";
     }
   }
-  qwest.post(url, {title: inputValue, is_done: false}, {cache: true}); // wysłanie nowego zadania w postaci obiektu o właściwościach "title" i "is_done"
+  window.reload();
+  
+    //display
+    /*
+var i,j;
+for(i=0;i<tasks.length;i++){
+  console.log("XD");
+    var xd = document.createElement('li');
+    var x = document.createTextNode(tasks[i].body.title);
+    xd.appendChild(x);
+    document.getElementById("listing").appendChild(xd);
     
+    var span = document.createElement("span");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    xd.appendChild(span);
+    j=0;
+    for (j = 0; j < close.length; j++) {
+    close[j].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    };
+  }
+  window.reload();
+}*/
+
+  //display();
     //this cant be right without rest api
     /*window.location.reload(true);
     console.log(Math.random());*/
