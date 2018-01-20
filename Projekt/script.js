@@ -1,41 +1,57 @@
-
-
 //close button
 var buttons = document.getElementsByTagName("li");
 var i;
-for(i=0; i < buttons.length; i++){
-    var span = document.createElement("button");
-    var txt = document.createTextNode("\u00D7");
-    var txt = document.createTextNode("XD");
-    span.className = "close";
-    span.appendChild(txt);
-    buttons[i].appendChild(span);
+for (i = 0; i < buttons.length; i++) {
+  var span = document.createElement("button");
+  var txt = document.createTextNode("\u00D7");
+  var txt = document.createTextNode("XD");
+  span.className = "close";
+  span.appendChild(txt);
+  buttons[i].appendChild(span);
+}
+
+function del(nr){
+
+  var element = document.getElementById(nr);
+  console.log(element.parentNode);
+  var parent = element.parentNode.parentNode;
+  parent.removeChild(element.parentNode);
+  qwest.delete(url+'/'+tasks[nr].id, null, {cache: true}).then(function(xhr, response) { // usuwamy zadanie o danym identyfikatorze (tym razem nie musimy przesyłać ciała takiego zadania)
+		refresh(); // odświeżamy stan strony
+  });
+  //location.reload(true);
 }
 
 
-//deleting items
-var close = document.getElementsByClassName("close");
-var i;
-for(i=0;i< close.length; i++){
-    close[i].onclick = function(){
-        var div = this.parentElement;
-        div.style.display = "none";
-    }
-}
-
-//check symbol
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
+function checktask(tags){
+  var res = tags.slice(2,tags.length);
+  if(tasks[res].body.is_done == false){
+    tasks[res].body.is_done = true;
+    var check = document.getElementById(tags);
+    check.setAttribute("class", "checked");
+    qwest.map('PATCH', url+'/'+tasks[res].id, tasks[res].body, {cache: true}).then(function(xhr, response) { // szukamy odpowiedniego zasobu na serwerze i modyfikujemy jego ciało
+      refresh(); // odświeżamy stan strony
+    });
   }
-}, false);
+  else{
+    tasks[res].body.is_done = false;
+    var check = document.getElementById(tags);
+    check.removeAttribute("class", "checked");
+    qwest.map('PATCH', url+'/'+tasks[res].id, tasks[res].body, {cache: true}).then(function(xhr, response) { // szukamy odpowiedniego zasobu na serwerze i modyfikujemy jego ciało
+      refresh(); // odświeżamy stan strony
+    });
+  }
+}
 
+
+//adding (enter)
 function validateOnEnter(event) {
   var key = event.which || event.keyCode;
   if (key == 13) { // enter pressed then invoke the validation method
     newElement();
+    location.reload(true);
   }
+  
 }
 
 
@@ -46,56 +62,19 @@ function newElement() {
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
+
     alert("You must write something!");
+
   } else {
+
     document.getElementById("listing").appendChild(li);
-    qwest.post(url, {title: inputValue, is_done: false}, {cache: true}); // wysłanie nowego zadania w postaci obiektu o właściwościach "title" i "is_done"
-    
+    qwest.post(url, {
+      title: inputValue,
+      is_done: false
+    }, {
+      cache: true
+    }); // wysłanie nowego zadania w postaci obiektu o właściwościach "title" i "is_done"
   }
-    tasks.push(inputValue);
-  document.getElementById("in").value = "";
 
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
-
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }
-  window.reload();
-  
-    //display
-    /*
-var i,j;
-for(i=0;i<tasks.length;i++){
-  console.log("XD");
-    var xd = document.createElement('li');
-    var x = document.createTextNode(tasks[i].body.title);
-    xd.appendChild(x);
-    document.getElementById("listing").appendChild(xd);
-    
-    var span = document.createElement("span");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    xd.appendChild(span);
-    j=0;
-    for (j = 0; j < close.length; j++) {
-    close[j].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    };
-  }
-  window.reload();
-}*/
-
-  //display();
-    //this cant be right without rest api
-    /*window.location.reload(true);
-    console.log(Math.random());*/
+  location.reload(true);
 }
