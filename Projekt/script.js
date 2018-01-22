@@ -51,7 +51,7 @@ function validateOnEnter(event) {
     newElement();
     location.reload(true);
   }
-  
+
 }
 
 
@@ -61,7 +61,8 @@ function newElement() {
   var inputValue = document.getElementById("in").value;
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
-  if (inputValue === '') {
+  var wejscie = inputValue.trim();
+  if (wejscie === '') {
 
     alert("You must write something!");
 
